@@ -36,7 +36,7 @@ def register() -> Plugin:
             className='ProfileSegmenterAction',
             inputs=["payload"],
             outputs=['payload'],
-            version='0.1',
+            version='0.6.0',
             license="MIT",
             author="Risto Kowaczewski",
             init={

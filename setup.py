@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='tracardi-profile-segmentation',
-    version='0.1',
+    version='0.6.0',
     description='This plugin will add/remove segment from the profile.',
     long_description=long_description,
     long_description_content_type="text/markdown",

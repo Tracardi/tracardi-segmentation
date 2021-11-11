@@ -3,4 +3,4 @@ python -m twine upload dist/*
 
 rm -rf build
 rm -rf dist
-rm -rf tracardi-profile-segmentation.egg-info
+rm -rf tracardi_profile_segmentation.egg-info
