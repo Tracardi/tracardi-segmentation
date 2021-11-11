@@ -1,0 +1,5 @@
+pip>=21.2.4
+tracardi-plugin-sdk>=0.6.25
+tracardi
+wheel
+twine

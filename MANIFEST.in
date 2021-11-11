@@ -1,0 +1,2 @@
+recursive-include tracardi_profile_segmentation/model *
+recursive-include tracardi_profile_segmentation/service *
