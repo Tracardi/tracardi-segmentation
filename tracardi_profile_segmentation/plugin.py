@@ -6,10 +6,14 @@ from tracardi.process_engine.tql.condition import Condition
 from tracardi_profile_segmentation.model.configuration import Configuration
 
 
+def validate(config: dict):
+    return Configuration(**config)
+
+
 class ProfileSegmenterAction(ActionRunner):
 
     def __init__(self, **kwargs):
-        self.config = Configuration(**kwargs)
+        self.config = validate(kwargs)
 
     async def run(self, payload):
         dot = self._get_dot_accessor(payload)
@@ -46,11 +50,14 @@ def register() -> Plugin:
             },
             form=Form(groups=[
                 FormGroup(
+                    name="Add or remove segment",
+                    description="Set the conditions for profile segmentation.",
                     fields=[
                         FormField(
                             id="segment",
                             name="Segment name",
-                            description="Provide segment name. This name will be used to mark a profile.",
+                            description="Provide segment name. This name will be used to mark a profile. "
+                                        "Please use dashes instead of spaces.",
                             component=FormComponent(type="text", props={"label": "segment"})
                         ),
                         FormField(
@@ -79,7 +86,7 @@ def register() -> Plugin:
             type='flowNode',
             width=200,
             height=100,
-            icon='icon',
-            group=["General"]
+            icon='group-person',
+            group=["Data processing"]
         )
     )
