@@ -10,7 +10,7 @@ def validate(config: dict):
     return Configuration(**config)
 
 
-class ProfileSegmenterAction(ActionRunner):
+class ProfileSegmentAction(ActionRunner):
 
     def __init__(self, **kwargs):
         self.config = validate(kwargs)
@@ -37,7 +37,7 @@ def register() -> Plugin:
         start=False,
         spec=Spec(
             module='tracardi_profile_segmentation.plugin',
-            className='ProfileSegmenterAction',
+            className='ProfileSegmentAction',
             inputs=["payload"],
             outputs=['payload'],
             version='0.6.0',
