@@ -43,6 +43,7 @@ def register() -> Plugin:
             version='0.6.0',
             license="MIT",
             author="Risto Kowaczewski",
+            manual="profile_segment",
             init={
                 "segment": "",
                 "action": "add",  # the default action (we have add and remove to choose form)
