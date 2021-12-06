@@ -1,6 +1,7 @@
 from tracardi.domain.profile import Profile
 from tracardi_plugin_sdk.action_runner import ActionRunner
-from tracardi_plugin_sdk.domain.register import Plugin, Spec, MetaData, Form, FormGroup, FormField, FormComponent
+from tracardi_plugin_sdk.domain.register import Plugin, Spec, MetaData, Form, FormGroup, FormField, FormComponent, \
+    Documentation, PortDoc
 from tracardi_plugin_sdk.domain.result import Result
 from tracardi.process_engine.tql.condition import Condition
 from tracardi_profile_segmentation.model.configuration import Configuration
@@ -50,7 +51,7 @@ def register() -> Plugin:
             className='ProfileSegmentAction',
             inputs=["payload"],
             outputs=['true', "false", "error"],
-            version='0.6.0',
+            version='0.6.0.1',
             license="MIT",
             author="Risto Kowaczewski",
             manual="profile_segment",
@@ -131,6 +132,14 @@ def register() -> Plugin:
             width=200,
             height=100,
             icon='group-person',
-            group=["Data processing"]
+            group=["Data processing"],
+            documentation=Documentation(
+                inputs={
+                    "payload": PortDoc(desc="Reads payload object.")
+                },
+                outputs={
+                    "payload": PortDoc(desc="Returns input payload."),
+                }
+            )
         )
     )
